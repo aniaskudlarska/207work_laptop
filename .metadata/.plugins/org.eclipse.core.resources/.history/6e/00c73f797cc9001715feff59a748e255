@@ -1,0 +1,91 @@
+import java.io.*;
+import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class FileParser {
+
+	private String basePath;
+	private int lineNumber = 0;
+	
+	private HashMap<String, Student> utoridToStudent = new HashMap<String, Student>();
+	
+	public FileParser(String basePath) {
+		
+		this.basePath = basePath;
+		
+		try {
+			
+			//this.parseUtorids();
+			this.getUtorids();
+			//this.parseMarks();
+			
+		} catch (IOException e) {
+			System.err.println("An error occured with the given files.");			
+		}
+
+	}
+	
+	private void parseUtorids() throws IOException {
+
+		BufferedReader input = null;
+		
+		try {
+			
+			input = new BufferedReader(new FileReader(basePath+"/utorids.csv"));
+			
+			String line;
+			String[] data;
+			
+			input.readLine(); // get rid of first line
+			
+			while ((line = input.readLine()) != null) {
+
+				data = line.split(",");
+				utoridToStudent.put(data[1], new Student(data[0], data[1], data[4], data[3]));
+				System.out.println(utoridToStudent.get(data[1]));
+				
+			}
+			
+			
+		} finally {
+			if (input != null)
+				input.close();
+		}
+	}
+	
+	private void getUtorids() throws IOException {
+		
+		BufferedReader in = null;
+		
+		try {
+			
+			// TO DO: Write out the exact format of the lines where the utorids are present in the file
+			// TO DO: Modify this so that instead of printing out entire line each time, we just print out the utorids
+			
+			Pattern p = Pattern.compile(".+/JugPuzzleGame/src/JugPuzzleGUIController.java");
+			in = new BufferedReader(new FileReader(basePath + "/marks.txt"));
+			
+			String line;
+			while ((line = in.readLine()) != null) {
+				
+				Matcher m = p.matcher(line);
+				if (m.matches()) {
+					System.out.println(m.group(0));
+				}
+				
+			}
+			
+		} finally {
+			if (in != null) {
+				in.close();
+			}
+		}
+		
+	}
+	
+	public static void main(String[] args) {
+		FileParser mp = new FileParser(Paths.get("").toAbsolutePath().toString());
+	}
+}
