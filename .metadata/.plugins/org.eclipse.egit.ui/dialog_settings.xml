@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<section name="Workbench">
+	<list key="CommitDialog.authorValues">
+		<item value="quinn &lt;quinn@quinn-Inspiron-3451&gt;"/>
+	</list>
+	<list key="CommitDialog.committerValues">
+		<item value="quinn &lt;quinn@quinn-Inspiron-3451&gt;"/>
+	</list>
+	<section name="GitCommitMessageComponent">
+		<list key="/home/quinn/207_L0103/.git">
+			<item value="false"/>
+			<item value="quinn &lt;quinn@quinn-Inspiron-3451&gt;"/>
+			<item value="&#x09;&#x09;hi this is computer science 207 and im doing a git commit"/>
+			<item value="quinn &lt;quinn@quinn-Inspiron-3451&gt;"/>
+			<item value="5657145b4fc1744aa75a2afe07817d86f52c1fb7"/>
+		</list>
+	</section>
+	<section name="org.eclipse.egit.ui.internal.staging.StagingView">
+		<item value="500,500" key="STAGING_SASH_FORM_WEIGHT"/>
+		<item value="true" key="sortItemState"/>
+		<item value="500,500" key="HORIZONTAL_SASH_FORM_WEIGHT"/>
+	</section>
+</section>
